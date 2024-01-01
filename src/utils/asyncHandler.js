@@ -2,8 +2,8 @@
 // we create a try catch function and juct simply pass the argument and your 
 // work will we done 
 
-const asyncHandler = () => {
-    (req,res,next)=>{
+const asyncHandler = (requestHandler) => {
+    return (req,res,next)=>{
         Promise.resolve(requestHandler(req,res,next))
         .catch((err)=> next(err))
     }
